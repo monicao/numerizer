@@ -17,6 +17,14 @@ describe('grammar', function () {
       expected: "1"
     },
     {
+      string: "zone",
+      expected: "zone"
+    },
+    {
+      string: " one ",
+      expected: " 1 "
+    },
+    {
       string: "twenty",
       expected: "20"
     },
