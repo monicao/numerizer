@@ -1,0 +1,42 @@
+{
+  "name": "numerizer",
+  "description": "Convert strings with natural language numbers into numbers",
+  "version": "0.0.0",
+  "dependencies": {
+    "jison": "^0.4.15"
+  },
+  "scripts": {
+    "lint": "jshint .",
+    "checkStyle": "jscs .",
+    "pretest": "npm run-script lint && npm run-script checkStyle",
+    "test": "istanbul cover ./node_modules/.bin/_mocha test",
+    "posttest": "istanbul check-coverage && rm -rf coverage",
+    "prepublish": "npm test && npm prune"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "author": "Monica Olinescu <monica.olinescu@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-istanbul": "^0.3.0",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "^1.1.0",
+    "gulp-plumber": "^0.6.5",
+    "gulp-shell": "^0.2.11",
+    "gulp-util": "^3.0.1",
+    "istanbul": "^0.3.2",
+    "jscs": "^1.6.1",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.4",
+    "should": "3.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:monicao/numerizer.git"
+  }
+}
