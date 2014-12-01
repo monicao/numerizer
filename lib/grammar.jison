@@ -10,6 +10,8 @@
 \bthree\b             return 'THREE'
 \bhundred\b           return 'HUNDRED'
 \bthousand\b          return 'THOUSAND'
+\s+                   return 'SP'
+\b[a-zA-Z]+ty\b       return 'TY'
 \b[a-zA-Z]+ty\b       return 'TY'
 \band\b               return 'AND'
 \b[a-zA-Z]+\b         return 'WORD'
