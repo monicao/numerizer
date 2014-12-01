@@ -3,26 +3,53 @@ var should = require('should');
 
 describe('grammar', function () {
 
-  it('should handle no numbers', function(){
-    numerizer.parse("so many things too much fun")
-    .should.equal("so many things too much fun");
-  });
+  var tests = [
+    {
+      string: "",
+      expected: ""
+    },
+    {
+      string: " ",
+      expected: " "
+    },
+    {
+      string: "one",
+      expected: "1"
+    },
+    {
+      string: "twenty",
+      expected: "20"
+    },
+    {
+      string: "so many things too much fun",
+      expected: "so many things too much fun"
+    },
+    {
+      string: "so! many things - too much fun...",
+      expected: "so! many things - too much fun..."
+    },
+    {
+      string: "one hundred things",
+      expected: "100 things"
+    },
+    {
+      string: "one hundred and one dalmations",
+      expected: "101 dalmations"
+    },
+    {
+      string: "two stupid dogs",
+      expected: "2 stupid dogs"
+    },
+    {
+      string: "which two stupid dogs do you like",
+      expected: "which 2 stupid dogs do you like"
+    }
+  ]
 
-  it('should handle special characters', function(){
-    numerizer.parse("so! many things - too much fun...")
-    .should.equal("so! many things - too much fun...");
-  });
-
-  it('should handle large numbers', function () {
-    numerizer.parse("one hundred things")
-    .should.equal("100 things");
-
-    numerizer.parse("one hundred and one dalmations")
-    .should.equal("101 dalmations");
-
-    numerizer.parse("two stupid dogs")
-    .should.equal("2 stupid dogs");
-
-  });
+  tests.forEach(function(testData){
+    it(testData.string, function(){
+      numerizer.parse(testData.string).should.equal(testData.expected);
+    });
+  })
 
 })
